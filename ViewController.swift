@@ -28,7 +28,6 @@ class ViewController: UIViewController {
         }
     }
     @IBAction func button0(_ sender: Any) {
-     
         if calflag == 1
         {
         show.text = show.text!+"0"
@@ -39,7 +38,7 @@ class ViewController: UIViewController {
         }
           calflag = 1
     }
-    @IBAction func button1(_ sender: Any) {calflag = 1
+    @IBAction func button1(_ sender: Any) {
         if calflag == 1
         {
             show.text = show.text!+"1"
@@ -51,7 +50,6 @@ class ViewController: UIViewController {
            calflag = 1
     }
     @IBAction func button2(_ sender: Any) {
- 
         if calflag == 1
         {
             show.text = show.text!+"2"
@@ -63,7 +61,6 @@ class ViewController: UIViewController {
          calflag = 1
     }
     @IBAction func button3(_ sender: Any) {
-   
         if calflag == 1
         {
             show.text = show.text!+"3"
@@ -75,7 +72,6 @@ class ViewController: UIViewController {
      calflag = 1
     }
     @IBAction func button4(_ sender: Any) {
-   
         if calflag == 1
         {
             show.text = show.text!+"4"
@@ -87,7 +83,6 @@ class ViewController: UIViewController {
        calflag = 1
     }
     @IBAction func button5(_ sender: Any) {
-   
         if calflag == 1
         {
             show.text = show.text!+"5"
@@ -99,7 +94,6 @@ class ViewController: UIViewController {
          calflag = 1
     }
     @IBAction func button6(_ sender: Any) {
-
         if calflag == 1
         {
             show.text = show.text!+"6"
@@ -111,7 +105,6 @@ class ViewController: UIViewController {
           calflag = 1
     }
     @IBAction func button7(_ sender: Any) {
-      
         if calflag == 1
         {
             show.text = show.text!+"7"
@@ -123,7 +116,6 @@ class ViewController: UIViewController {
           calflag = 1
     }
     @IBAction func button8(_ sender: Any) {
-      
         if calflag == 1
         {
             show.text = show.text!+"8"
@@ -135,7 +127,6 @@ class ViewController: UIViewController {
           calflag = 1
     }
     @IBAction func button9(_ sender: Any) {
-        
         if calflag == 1
         {
             show.text = show.text!+"9"
@@ -147,7 +138,7 @@ class ViewController: UIViewController {
           calflag = 1
     }
     @IBAction func spot(_ sender: Any) {
-    
+        show.text = ""
         if calflag == 1
         {
             show.text = show.text!+"."
@@ -158,10 +149,8 @@ class ViewController: UIViewController {
         }
         calflag = 1
     }
-
     @IBAction func plus(_ sender: Any) {
         temp = Double(Double(show.text!)!)
-     
         calflag = 2
         flag = 1
         transition.text = "+"
@@ -186,15 +175,14 @@ class ViewController: UIViewController {
     }
     
     @IBAction func radical(_ sender: Any) {
-         temp = Double(Double(show.text!)!)
+        temp = Double(Double(show.text!)!)
         flag = 5
-        
+        transition.text = "√"
     }
     @IBAction func square(_ sender: Any) {
         temp = Double(Double(show.text!)!)
         flag = 6
         transition.text = "^"
-    
     }
     @IBAction func returnzero(_ sender: Any) {
         show.text = "0"
@@ -221,13 +209,12 @@ class ViewController: UIViewController {
         }
         else if flag == 5
         {
-            sum = temp * temp
+            sum = sqrt(temp)
         }
         else if flag == 6
         {
-            sum = Double(flag * flag)
+            sum = temp * temp
         }
-        
         equal.text = "\(sum)"
     }
 }
