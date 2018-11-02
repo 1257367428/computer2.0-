@@ -184,8 +184,14 @@ class ViewController: UIViewController {
         flag = 6
         transition.text = "^"
     }
+    
+    @IBAction func percent(_ sender: Any) {
+        temp = Double(Double(show.text!)!)
+        flag = 7
+        transition.text = "%"
+    }
     @IBAction func returnzero(_ sender: Any) {
-        show.text = "0"
+        show.text = ""
         equal.text = ""
         transition.text = ""
         flag = 0
@@ -214,6 +220,10 @@ class ViewController: UIViewController {
         else if flag == 6
         {
             sum = temp * temp
+        }
+        else if flag == 7
+        {
+            sum = temp/100
         }
         equal.text = "\(sum)"
     }
