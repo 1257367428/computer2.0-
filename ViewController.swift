@@ -12,12 +12,36 @@ class ViewController: UIViewController {
     var sum:Double = 0
     var flag = 0
     var calflag = 0
+
     @IBOutlet weak var show: UITextField!
     
     @IBOutlet weak var equal: UITextField!
     
     @IBOutlet weak var transition: UITextField!
     var  cyan:Bool = false
+    @IBAction func unaryOperatorClicked(sender: UIButton) {
+        let clickedOperator = sender.currentTitle!
+        var result: Double = 0
+        
+        if clickedOperator == "Sqrt" {
+            if displayValue < 0 {
+                abortOperation()
+                return
+            }
+            result = sqrt(displayValue)
+        } else if clickedOperator == "x^2" {
+            result = pow(displayValue, 2)
+        } else if clickedOperator == "1/x" {
+            if displayValue == 0 {
+                abortOperation()
+                return
+            }
+            result = 1.0 / displayValue
+        }
+        displayValue = result
+        waitingForOperand = true
+    }
+
     @IBAction func change(_ sender: Any) {
         if(cyan){
             self.view.backgroundColor = UIColor.cyan
@@ -154,6 +178,7 @@ class ViewController: UIViewController {
         calflag = 2
         flag = 1
         transition.text = "+"
+        
     }
     @IBAction func reduce(_ sender: Any) {
         temp = Double(Double(show.text!)!)
