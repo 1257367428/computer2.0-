@@ -13,7 +13,6 @@ class ViewController: UIViewController {
     var flag = 0
     var calflag = 0
     var judge = 0
-
     @IBOutlet weak var show: UITextField!
     
     @IBOutlet weak var equal: UITextField!
@@ -153,62 +152,45 @@ class ViewController: UIViewController {
         calflag = 1
     }
     @IBAction func plus(_ sender: Any) {
-        
-        
-        temp = Double(Double(show.text!)!)
-        if judge == 1
+        if flag == 1
         {
-            do {
-                show.text = "\(temp + Double(show.text!)!)"
-            }
+            show.text = "\(temp + Double(show.text!)!)"
         }
-        
+        temp = Double(show.text!)!
         calflag = 2
         flag = 1
-        judge = 1
         transition.text = "+"
-        
     }
     @IBAction func reduce(_ sender: Any) {
-        temp = Double(Double(show.text!)!)
-        if judge == 2
+        if flag == 2
         {
-            do {
-                show.text = "\(temp - Double(show.text!)!)"
-            }
+            show.text = "\(temp - Double(show.text!)!)"
         }
+        temp = Double(show.text!)!
         calflag = 2
         flag = 2
-         judge = 2
         transition.text = "-"
     }
     @IBAction func ride(_ sender: Any) {
-        temp = Double(Double(show.text!)!)
-        if judge == 3
+        if flag == 3
         {
-            do {
-                show.text = "\(temp * Double(show.text!)!)"
-            }
+            show.text = "\(temp * Double(show.text!)!)"
         }
+        temp = Double(show.text!)!
         calflag = 2
         flag = 3
-        judge = 3
         transition.text = "×"
     }
     @IBAction func expect(_ sender: Any) {
-        temp = Double(Double(show.text!)!)
-        if judge == 4
+        if flag == 4
         {
-            do {
-                show.text = "\(temp / Double(show.text!)!)"
-            }
+            show.text = "\(temp / Double(show.text!)!)"
         }
+        temp = Double(show.text!)!
         calflag = 2
         flag = 4
-        judge = 4
         transition.text = "÷"
     }
-    
     @IBAction func radical(_ sender: Any) {
         temp = Double(Double(show.text!)!)
         flag = 5
@@ -230,7 +212,6 @@ class ViewController: UIViewController {
         equal.text = ""
         transition.text = ""
         flag = 0
-        judge = 0
         calflag = 0
     }
     @IBAction func Beequalto(_ sender: Any) {
