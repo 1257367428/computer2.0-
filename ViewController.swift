@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     var sum:Double = 0
     var flag = 0
     var calflag = 0
+    var judge = 0
 
     @IBOutlet weak var show: UITextField!
     
@@ -19,29 +20,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var transition: UITextField!
     var  cyan:Bool = false
-    @IBAction func unaryOperatorClicked(sender: UIButton) {
-        let clickedOperator = sender.currentTitle!
-        var result: Double = 0
-        
-        if clickedOperator == "Sqrt" {
-            if displayValue < 0 {
-                abortOperation()
-                return
-            }
-            result = sqrt(displayValue)
-        } else if clickedOperator == "x^2" {
-            result = pow(displayValue, 2)
-        } else if clickedOperator == "1/x" {
-            if displayValue == 0 {
-                abortOperation()
-                return
-            }
-            result = 1.0 / displayValue
-        }
-        displayValue = result
-        waitingForOperand = true
-    }
-
+    
     @IBAction func change(_ sender: Any) {
         if(cyan){
             self.view.backgroundColor = UIColor.cyan
@@ -174,28 +153,59 @@ class ViewController: UIViewController {
         calflag = 1
     }
     @IBAction func plus(_ sender: Any) {
+        
+        
         temp = Double(Double(show.text!)!)
+        if judge == 1
+        {
+            do {
+                show.text = "\(temp + Double(show.text!)!)"
+            }
+        }
+        
         calflag = 2
         flag = 1
+        judge = 1
         transition.text = "+"
         
     }
     @IBAction func reduce(_ sender: Any) {
         temp = Double(Double(show.text!)!)
+        if judge == 2
+        {
+            do {
+                show.text = "\(temp - Double(show.text!)!)"
+            }
+        }
         calflag = 2
         flag = 2
+         judge = 2
         transition.text = "-"
     }
     @IBAction func ride(_ sender: Any) {
         temp = Double(Double(show.text!)!)
+        if judge == 3
+        {
+            do {
+                show.text = "\(temp * Double(show.text!)!)"
+            }
+        }
         calflag = 2
         flag = 3
+        judge = 3
         transition.text = "×"
     }
     @IBAction func expect(_ sender: Any) {
         temp = Double(Double(show.text!)!)
+        if judge == 4
+        {
+            do {
+                show.text = "\(temp / Double(show.text!)!)"
+            }
+        }
         calflag = 2
         flag = 4
+        judge = 4
         transition.text = "÷"
     }
     
@@ -220,6 +230,8 @@ class ViewController: UIViewController {
         equal.text = ""
         transition.text = ""
         flag = 0
+        judge = 0
+        calflag = 0
     }
     @IBAction func Beequalto(_ sender: Any) {
         if flag == 1
