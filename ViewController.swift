@@ -152,43 +152,47 @@ class ViewController: UIViewController {
         calflag = 1
     }
     @IBAction func plus(_ sender: Any) {
-        if flag == 1
+        if judge == 1
         {
             show.text = "\(temp + Double(show.text!)!)"
         }
         temp = Double(show.text!)!
         calflag = 2
         flag = 1
+        judge = 1
         transition.text = "+"
     }
     @IBAction func reduce(_ sender: Any) {
-        if flag == 2
+        if judge == 2
         {
             show.text = "\(temp - Double(show.text!)!)"
         }
         temp = Double(show.text!)!
         calflag = 2
         flag = 2
+        judge=2
         transition.text = "-"
     }
     @IBAction func ride(_ sender: Any) {
-        if flag == 3
+        if judge == 3
         {
             show.text = "\(temp * Double(show.text!)!)"
         }
         temp = Double(show.text!)!
         calflag = 2
         flag = 3
+        judge = 3
         transition.text = "×"
     }
     @IBAction func expect(_ sender: Any) {
-        if flag == 4
+        if judge == 4
         {
             show.text = "\(temp / Double(show.text!)!)"
         }
         temp = Double(show.text!)!
         calflag = 2
         flag = 4
+        judge = 4
         transition.text = "÷"
     }
     @IBAction func radical(_ sender: Any) {
